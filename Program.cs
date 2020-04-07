@@ -6,12 +6,12 @@ namespace ConsoleApp1
 {
     class Tickets
     {
-        static string capitalize(string str)
+        static string Capitalize(string str)
         {
             return $"{str[0]}".ToUpper() + str.Substring(1, str.Length - 1).ToLower();
         }
 
-        static string paypalId()
+        static string PaypalId()
         {
             Random payRand = new Random();
             string id = "";
@@ -23,10 +23,10 @@ namespace ConsoleApp1
 
             return id;
         }
-        static void totalMessage(int total)
+        static void TotalMessage(int total)
         {
             Console.WriteLine($"The total you have to pay is {total} euro");
-            Console.WriteLine($"The payment can be processed through www.paypal.com/buy-tickets/{paypalId()}");
+            Console.WriteLine($"The payment can be processed through www.paypal.com/buy-tickets/{PaypalId()}");
         }
 
         static void Main(string[] args)
@@ -59,7 +59,7 @@ namespace ConsoleApp1
                 if (age <= 2)
                 {
                     Console.WriteLine("Children’s under two years old are not allowed to take this ticket");
-                    if (total > 0) totalMessage(total);
+                    if (total > 0) TotalMessage(total);
                     break;
                 }
                 if (age > 2 & age < 10) price = 3;
@@ -67,7 +67,7 @@ namespace ConsoleApp1
                 else price = 7;
             
                 total += price;
-                Console.WriteLine($"Hello {capitalize(name)} {capitalize(surname)},");
+                Console.WriteLine($"Hello {Capitalize(name)} {Capitalize(surname)},");
                 Console.WriteLine($"Your age should be {age}, The price for this ticket nr.{ticketNr} is {price} euro.");
                 Console.Write("If you wanna get more tickets enter \"continue\" else if that's all enter \"exit\" ");
                 string answer = Console.ReadLine().ToLower();
@@ -78,7 +78,7 @@ namespace ConsoleApp1
                 }
                 if (answer == "exit")
                 {
-                    totalMessage(total);
+                    TotalMessage(total);
                     break;
                 }
                 Console.Clear();
